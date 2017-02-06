@@ -1,0 +1,45 @@
+<div style="top: 0px; display: block;background-color: #42145f;">
+	<div style="width: 100%;">
+    	<!-- START LOGO -->
+        <span>
+        	<a id="logo-img" routerLink="" title="PartyHulchul">
+        		<img src="https://d19vuzhmciufvl.cloudfront.net/hyderabad/wp-content/themes/tyrion/images/partyhulchul-logo.png" data-at2x="https://d19vuzhmciufvl.cloudfront.net/hyderabad/wp-content/themes/tyrion/images/retina/partyhulchul-logo.png" title="PartyHulchul" alt="PartyHulchul">
+			</a>
+		</span>
+        <!-- END LOGO -->
+
+	    <!-- START NAVIGATION -->
+	    <span>
+			<span>
+				<select (change)="navigateTo($event.target.value)">
+					<option value="">Hyderabad</option>
+					<option value="">Bangalore</option>
+					<option value="">Chennai</option>
+					<option value="">Mumbai</option>
+				</select>
+			</span>
+			<span>
+				<a routerLink="/venues" style="color: #ca4b4b">Venues</a>
+			</span>
+			<span>
+				<select (change)="navigateTo($event.target.value)">
+					<option value="/photography">Photo &amp; Video</option>
+					<option value="/catering">Catering</option>
+					<option value="/decorators">Decorator</option>
+					<option value="/beauty">Beauty &amp; Health</option>
+					<option value="">Entertainment</option>
+					<option value="">Event Planning</option>
+					<option value="">Transport</option>
+  				</select>
+				
+			</span>
+			<span>
+				<a routerLink="" style="color: #ca4b4b">Get In Touch</a>
+			</span>
+		</span>
+	    <!-- END NAVIGATION -->
+    
+	</div>
+	<link rel="stylesheet" type="text/css" href="//www.partyhulchul.com/hyderabad/wp-content/themes/tyrion/css/style.css">
+</div>
+<br/>

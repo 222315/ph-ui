@@ -1,0 +1,75 @@
+<div>
+	<div style="border: 3px solid #f7f7f7;border-left-width:0;border-right-width:0;width: 100%" align="center">
+		<h2 class="slogan">The Best Function halls in Hyderabad</h2>
+		<h3>If you are looking for The Best Venues in Hyderabad for your parties, you are in correct place. 
+			<a class="wpsm-show" style="color: #cc0000 ;text-align: left " (click)="onClickOfShowOrLess()" *ngIf="!showMore"> more</a>
+			<div class="wpsm-content wpsm-content-hide" *ngIf="showMore"> Here we provide you the best function halls, banquet halls and convention centers Within your budget for wedding, engagement, reception and birthdays. We also provide additional information such as seating capacity, facilities, reviews, location on map, user ratings and many more 
+				<a class="wpsm-hide" style="color: #cc0000 ;text-align: left " (click)="onClickOfShowOrLess()"> less</a>
+			</div>
+		</h3>
+	</div>
+	
+	<br/>
+	<div style="width: 100%;">
+		<div style="width: 30%; float: left;">
+			<table>
+				<tr>
+					<td>
+						<label style="font-weight: bold;">Filters</label>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<input type="text">
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<label style="font-weight: bold;">Venue Type</label>
+						<div *ngFor="let venueType of venueFilterParamters.venueTypes">
+			                <label>
+			                    <input type="checkbox" value="{{venueType}}"/>{{venueType}}
+			                </label>
+			            </div>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<label style="font-weight: bold;">Capacity</label>
+						<div *ngFor="let capacity of venueFilterParamters.capacity">
+							<span>{{capacity}}</span>
+			            </div>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<label style="font-weight: bold;">Features</label>
+						<div *ngFor="let feature of venueFilterParamters.features">
+			                <label>
+			                    <input type="checkbox" value="{{feature}}"/>{{feature}}
+			                </label>
+			            </div>
+					</td>
+				</tr>
+			</table>
+			
+		</div>
+		<div style="width: 70%;float: right;">
+			<div style="width: 100%;">
+				<div *ngFor="let venue of venueDetails; let tagIndex = index">
+					<div style="width: 33%;float: left;">
+						<span class="thumb-wrapper">
+							<a routerLink="">
+								<span class="face">
+									<img width="262" height="262" src="https://d19vuzhmciufvl.cloudfront.net/hyderabad/wp-content/uploads/2015/05/Hotel-Nera-Regency-262x262.jpg" class="attachment-shop_catalog size-shop_catalog wp-post-image" alt="Hotel-Nera-Regency"/>
+								</span>
+							</a>
+						</span>
+						<h3>{{venueDetails[tagIndex].name}}</h3>
+						<span>{{venueDetails[tagIndex].address.addressLine1}}, Upto {{venueDetails[tagIndex].seatingCapacity}} capacity</span>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

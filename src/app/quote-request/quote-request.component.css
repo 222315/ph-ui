@@ -1,0 +1,330 @@
+div.slogan {
+	border: 1px solid #dbdbdb;
+	border-left-width: 0;
+	border-right-width: 0;
+}
+
+.slogan {
+	background-color: transparent;
+}
+
+.slogan_container {
+	padding: 0;
+	border: 3px solid #f7f7f7;
+	border-left-width: 0;
+	border-right-width: 0;
+}
+
+.slogan h2, .slogan h3 {
+	color: #4d4b4b;
+	text-align: center;
+}
+
+.slogan h2 {
+	font-size: 36px;
+	margin-bottom: 0px;
+	margin-top: 0;
+	letter-spacing: -0.9px;
+	position: relative;
+	font-weight: 800;
+}
+
+.slogan h2 img {
+	position: relative;
+	top: -6px;
+	margin-right: 13px;
+}
+
+.slogan h3 {
+	font-size: 20px;
+	margin: 0px;
+	line-height: 14px;
+	margin-bottom: 20px;
+}
+
+.slogan h3 span {
+	color: #848484;
+}
+
+.slogan .border {
+	width: 570px;
+	height: 2px;
+	padding: 0px;
+	margin: 0px auto;
+}
+
+.slogan .border.margin-top {
+	margin-top: 20px;
+}
+
+.slogan h2 span.special-font, .slogan h3 span.special-font {
+	font-size: 2em;
+}
+
+#topPanelText-title {
+	text-align: center;
+	font-size: 22px;
+	padding: 10px;
+	color: #fff;
+	background-color: #42145d;
+}
+
+.margin-bottom {
+	margin-bottom: 2px;
+}
+
+.event-bar, .services-bar {
+	list-style: none;
+	text-align: left;
+}
+
+.event-bar li {
+	position: relative;
+	display: inline-block;
+	text-align: center;
+}
+
+.event-bar li {
+	background-image: -moz-linear-gradient(top, #f7f7f7, #e7e7e7);
+	background-image: -ms-linear-gradient(top, #f7f7f7, #e7e7e7);
+	background-image: -o-linear-gradient(top, #f7f7f7, #e7e7e7);
+	color: #000;
+	margin: 13px;
+	width: 85px;
+	height: 85px;
+	position: relative;
+	text-align: center;
+	line-height: 75px;
+	border-radius: 50%;
+	box-shadow: 0px 2px 3px #aaa, inset 0px 2px 3px #fff;
+	border: 1px solid #f2f2f2;
+	font-size: 12px;
+	cursor: pointer;
+}
+
+.event-bar li:hover {
+	text-decoration: none;
+	color: #000;
+	background: #fff;
+	box-shadow: 0px 3px 8px #fff, inset 0px 2px 3px #d80fa2;
+	border: 1px solid #d80fa2;
+}
+
+.event-bar li.active {
+	text-decoration: none;
+	color: #000;
+	background: #fff7fd;
+	box-shadow: 0px 3px 8px #fff, inset 0px 2px 3px #d80fa2;
+	border: 1px solid #d80fa2;
+}
+
+.question-title {
+	color: #42145d;
+	margin-bottom: 0;
+}
+
+.circle-list li {
+	position: relative;
+	display: inline-block;
+	text-align: center;
+}
+
+.circle-list li {
+	background-image: -moz-linear-gradient(top, #f7f7f7, #e7e7e7);
+	background-image: -ms-linear-gradient(top, #f7f7f7, #e7e7e7);
+	background-image: -o-linear-gradient(top, #f7f7f7, #e7e7e7);
+	color: #000;
+	margin: 13px;
+	width: 85px;
+	height: 85px;
+	position: relative;
+	text-align: center;
+	line-height: 75px;
+	border-radius: 50%;
+	box-shadow: 0px 2px 3px #aaa, inset 0px 2px 3px #fff;
+	border: 1px solid #f2f2f2;
+	font-size: 12px;
+	cursor: pointer;
+}
+
+.circle-list li:hover {
+	text-decoration: none;
+	color: #000;
+	background: #fff;
+	box-shadow: 0px 3px 8px #fff, inset 0px 2px 3px #d80fa2;
+	border: 1px solid #d80fa2;
+}
+
+.circle-list li.active {
+	text-decoration: none;
+	color: #000;
+	background: #fff7fd;
+	box-shadow: 0px 3px 8px #fff, inset 0px 2px 3px #d80fa2;
+	border: 1px solid #d80fa2;
+}
+
+.circle-list li#inputstyle {
+	border: none;
+	box-shadow: none;
+}
+
+.circle-list li input[type='text'] {
+	height: 30px;
+	border-radius: 20px;
+	border: none;
+	width: 120px;
+	text-align: center;
+	box-shadow: 0px 2px 3px #aaa, inset 0px 2px 3px #fff;
+	border: 1px solid #f2f2f2;
+}
+
+.circle-list li input[type='text']:hover {
+	text-decoration: none;
+	color: #000;
+	background: #fff7fd;
+	box-shadow: 0px 3px 8px #fff, inset 0px 2px 3px #d80fa2;
+	border: 1px solid #fff;
+}
+
+.circle-list li input.active[type='text'] {
+	text-decoration: none;
+	color: #000;
+	background: #fff7fd;
+	box-shadow: 0px 3px 8px #fff, inset 0px 2px 3px #d80fa2;
+	border: 1px solid #fff;
+}
+
+tr:nth-child(2n+0) {
+	background-color: #f2f2f2;
+}
+
+tr:nth-child(2n+1) {
+	background-color: #f2f2f2;
+}
+
+.mandatory-star {
+	color: #9f2424;
+	font-size: 24px;
+	position: relative;
+	top: 3px;
+}
+
+td {
+	border: 0px solid #ccc;
+	height: 35px;
+}
+
+@media ( min-width : 1200px) {
+	.abt-you {
+		width: 48%;
+		float: right;
+		background-color: #f2f2f2;
+		padding-left: 26px;
+		min-height: 305px;
+	}
+	.abt-event {
+		width: 48%;
+		float: left;
+		background-color: #f2f2f2;
+		padding: 10px;
+	}
+	.table-width {
+		width: 450px;
+	}
+}
+
+/*iPad in portrait*/
+@media only screen and (min-device-width : 768px) and (max-device-width
+	: 1024px) and (orientation : portrait) {
+	.abt-you {
+		width: 46%;
+		float: right;
+		background-color: #f2f2f2;
+		padding-left: 26px;
+		min-height: 305px;
+	}
+	.abt-event {
+		width: 47%;
+		float: left;
+		background-color: #f2f2f2;
+		padding: 10px;
+	}
+	.table-width {
+		width: 330px;
+	}
+}
+
+/*iPad in landscape*/
+@media only screen and (min-device-width : 768px) and (max-device-width
+	: 1024px) and (orientation : landscape) {
+	.abt-you {
+		width: 47%;
+		float: right;
+		background-color: #f2f2f2;
+		padding-left: 26px;
+		min-height: 305px;
+	}
+	.abt-event {
+		width: 48%;
+		float: left;
+		background-color: #f2f2f2;
+		padding: 10px;
+	}
+	.table-width {
+		width: 400px;
+	}
+}
+
+@media ( max-width : 767px) {
+	.abt-you {
+		width: 96.5%;
+		float: none;
+		background-color: #f2f2f2;
+		padding-left: 15px;
+		min-height: 215px;
+		margin-top: -40px;
+		border-top: 1px solid #fff;
+	}
+	.abt-event {
+		width: 95%;
+		float: none;
+		background-color: #f2f2f2;
+		padding: 10px;
+	}
+	.table-width {
+		width: 300px;
+	}
+}
+img {
+    width: auto;
+    height: auto;
+    max-width: 100%;
+    vertical-align: middle;
+    border: 0;
+    -ms-interpolation-mode: bicubic;
+}
+div.success-box {
+	background: #fbfff0 url("https://partyhulchul.com/wp-content/themes/tyrion/theme/assets/images/icons/message/check.png") no-repeat scroll 18px center ;
+	border: 6px solid #e2efbb;
+	color: #677932;
+}
+span {
+	font-size: 14px;
+	font-family: 'Lato',sans-serif;
+	font-style: normal;
+	font-weight: 400;
+	color: #4b4b4b;
+}
+h4 { 
+	font-size: 18px; 
+	font-family: 'Lato', sans-serif; 
+	color: #4b4b4b; 
+	font-style: normal; 
+	font-weight: 700; 
+}
+input[type="number"], input[type="text"] {
+	padding: 6px; 
+	border-radius: 0px; 
+	height: 20px;
+	width: 90%;
+}
