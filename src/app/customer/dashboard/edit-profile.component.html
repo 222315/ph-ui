@@ -1,0 +1,92 @@
+<div class="container edit-profile" *ngIf="customer">
+
+
+    <form class="container" (ngSubmit)="onSubmit()" #editForm="ngForm">
+      <div class="row">
+      <div class="form-group  col-4">
+        <label for="fname">First Name :</label>
+        <input type="text" [(ngModel)]="customer.firstName"
+        value="{{customer.firstName}}"
+        name="fname" class="form-control"
+         id="fname" required
+         #fname="ngModel"
+         >
+        <div [hidden]="fname.valid || fname.pristine"
+             class="alert alert-danger">
+          First Name is required
+        </div>
+            </div>
+      <div class="form-group col-4">
+        <label for="lname">Last Name :</label>
+        <input type="text" [(ngModel)]="customer.lastName"
+        value="{{customer.lastName}}" name="lname"
+        class="form-control" id="lname"
+        required #lname="ngModel"
+        >
+        <div [hidden]="lname.valid || lname.pristine"
+             class="alert alert-danger">
+          Last Name is required
+        </div>
+      </div>
+      <div class="form-group col-4">
+        <label for="lname">EmialId :</label>
+        <input type="email" disabled value="{{customer.emailId}}" name="email" class="form-control" id="email" required>
+      </div>
+    </div>
+
+        <section class="form-group row">
+      <legend class="col-form-legend"><strong>Phone Number</strong></legend>
+
+          <div class="form-check col"  >
+          <label for="fname">Mobile :</label>
+          <input type="text" [(ngModel)]="customer.phone.mobile" value="{{customer.phone.mobile}}" name="mobile" class="form-control" id="mobile" required>
+        </div>
+        <div class="form-group col" >
+        <label for="fname">Home :</label>
+        <input type="text" [(ngModel)]="customer.phone.home" value="{{customer.phone.home}}" name="home" class="form-control" id="home">
+      </div>
+      <div class="form-group col" >
+      <label for="fname">Other :</label>
+      <input type="text" [(ngModel)]="customer.phone.other" value="{{customer.phone.other}}" name="other" class="form-control" id="other">
+    </div>
+
+  </section>
+
+
+        <section class="form-group row">
+      <legend class="col-form-legend"><strong>Mailing Address</strong></legend>
+
+          <div class="form-check col-4"  >
+          <label for="fname">Address Line1 :</label>
+          <input type="text" [(ngModel)]="customer.mailingAddress.addressLine1" value="{{customer.mailingAddress.addressLine1}}" name="addl1" class="form-control" id="add1" required>
+        </div>
+        <div class="form-group col-4" >
+        <label for="fname">Address Line2 :</label>
+        <input type="text" [(ngModel)]="customer.mailingAddress.addressLine2" value="{{customer.mailingAddress.addressLine2}}" name="add2" class="form-control" id="add2">
+      </div>
+      <div class="form-group col-4" >
+      <label for="fname">Address Line3 :</label>
+      <input type="text" [(ngModel)]="customer.mailingAddress.addressLine3" value="{{customer.mailingAddress.addressLine3}}" name="add3" class="form-control" id="add3">
+    </div>
+    <div class="form-group col-4" >
+    <label for="fname">City :</label>
+    <input type="text" [(ngModel)]="customer.mailingAddress.city" value="{{customer.mailingAddress.city}}" name="city" class="form-control" id="city" required>
+  </div>
+  <div class="form-group col-4" >
+  <label for="fname">Zip :</label>
+  <input type="text" [(ngModel)]="customer.mailingAddress.zip" value="{{customer.mailingAddress.zip}}" name="zip" class="form-control" id="zip" required>
+</div>
+<div class="form-group col-4" >
+<label for="fname">Country :</label>
+<input type="text" [(ngModel)]="customer.mailingAddress.country" value="{{customer.mailingAddress.country}}" name="country" class="form-control" id="country" required>
+</div>
+
+        </section>
+
+      <div class="form-group" style="text-align: center;">
+        <button type="button" class="btn btn-success" (click)="cancelEdit()">Cancel</button>
+      <button type="submit" class="btn btn-success" [disabled]="!editForm.form.valid">Submit</button>
+    </div>
+    </form>
+
+</div>

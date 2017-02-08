@@ -1,6 +1,9 @@
 import { ModuleWithProviders, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { RouterModule } from '@angular/router';
+import { RouterModule, Router } from '@angular/router';
+import { AppRoutingModule } from './app-routing.module';
+import {CustomerModule} from './customer/dashboard/customer.module';
+
 
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
@@ -38,7 +41,9 @@ const rootRouting: ModuleWithProviders = RouterModule.forRoot([], { useHash: tru
     DecoratorsModule,
     PhotographyModule,
     VenuesModule,
-    QuoteRequestModule
+    QuoteRequestModule,
+     CustomerModule,
+  AppRoutingModule,
   ],
   providers: [ApiService, LocationService, VenueService],
   bootstrap: [AppComponent]
