@@ -1,0 +1,114 @@
+<section >
+  <h6>Your Recent QuoteRequests</h6>
+  <div class="row" *ngIf="customerHistory">
+  <div class="col cust-req-history" *ngFor="let request of customerHistory.quoteReqs" >
+     <div class="row">
+       <span class="col-4">
+         <label>Requested Date :</label>{{request.date}}
+       </span>
+       <span class="col-4">
+         <label>Event Type :</label>{{request.eventType}}
+       </span>
+
+       <span class="col-4">
+         <label>Event Date :</label>{{request.eventDate}}
+       </span>
+       <span class="col-3">
+         <label>#Guests :</label>{{request.noGuests}}
+       </span>
+       <span class="col-5">
+         <label>Address :</label><div style="display:inline"><span>{{request.location.addressLine1}}</span>
+         <span>{{request.location.addressLine2}}</span>
+         <span>{{request.location.addressLine3}}</span>
+         <span>{{request.location.city}}</span>
+         <span>{{request.location.zip}}</span>
+         <span>{{request.location.country}}</span></div>
+       </span>
+
+
+     </div>
+     <div class="col">
+        <label>Services Requested :</label>
+        <table class="table table-striped" *ngIf="request.services.length > 0">
+  <thead>
+    <tr>
+      <th>Service Type</th>
+      <th>Service Subtype</th>
+      <th>Quote Price</th>
+      <th>Special Requests</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let service of request.services">
+      <td>{{service.serviceType}}</td>
+      <td>{{service.subType}}</td>
+      <td>{{service.quoteValue}}</td>
+      <td>{{service.reqSpls}}</td>
+    </tr>
+
+  </tbody>
+ </table>
+     </div>
+   <div class="col" >
+     <a (click)="showVendor = !showVendor">
+       Vendor Responses({{request.vendorRes.vendors.length}})</a>
+      </div>
+     <div class="col" *ngIf="showVendor">
+        <label>Respone From Vendors:</label>
+        <table class="table table-striped" *ngIf="request.vendorRes.vendors.length > 0">
+   <thead>
+    <tr>
+      <th>Vendor Type</th>
+      <th>Quote Price</th>
+      <th>Vendor Comments</th>
+      <th>Reson For Quote Value Change</th>
+      <th></th>
+    </tr>
+   </thead>
+   <tbody>
+    <tr *ngFor="let vendor of request.vendorRes.vendors">
+      <td>{{vendor.type}}</td>
+      <td>{{vendor.quoteValue}}</td>
+      <td>{{vendor.specials}}</td>
+      <td>{{vendor.reasonForQuoteChange}}</td>
+      <td><a href="#"><i class="fa fa-weixin fa-lg" aria-hidden="true"></i></a></td>
+    </tr>
+
+   </tbody>
+   </table>
+     </div>
+  </div>
+</div>
+</section>
+<section >
+  <h6>Your Booking History</h6>
+  <div class="row" *ngIf="customerHistory && customerHistory.bookingHistory.length >0">
+  <div class="col cust-req-history" *ngFor="let request of customerHistory.bookingHistory" >
+     <div class="row">
+       <span class="col-4">
+         <label>Requested Date :</label>{{request.date}}
+       </span>
+       <span class="col-4">
+         <label>Event Type :</label>{{request.eventType}}
+       </span>
+
+       <span class="col-4">
+         <label>Event Date :</label>{{request.eventDate}}
+       </span>
+       <span class="col-3">
+         <label>#Guests :</label>{{request.noGuests}}
+       </span>
+       <span class="col-5">
+         <label>Address :</label><div style="display:inline"><span>{{request.location.addressLine1}}</span>
+         <span>{{request.location.addressLine2}}</span>
+         <span>{{request.location.addressLine3}}</span>
+         <span>{{request.location.city}}</span>
+         <span>{{request.location.zip}}</span>
+         <span>{{request.location.country}}</span></div>
+       </span>
+
+
+     </div>
+   </div>
+ </div>
+</section>

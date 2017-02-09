@@ -1,0 +1,25 @@
+<div class="container" style="margin-top: 10px;"*ngIf="customer">
+
+  <div class="row" style="float:right">
+    <a routerLink="/editProfile">Edit Profile</a>
+  </div>
+ <!--<div class="row align-items-start">
+  <div>
+    <label>First Name :</label>
+    <label >{{customer.firstName}}</label>
+   </div>
+   <div>
+     <label>Last Name :</label>
+     <label >{{customer.lastName}}</label>
+    </div>
+    <div>
+      <label>EmailId :</label>
+      <label >{{customer.emailId}}</label>
+     </div>
+     <div>
+       <label>Phone :</label>
+       <label >{{customer.phone.mobile}}</label>
+      </div>
+    </div>-->
+    <customer-history></customer-history>
+</div>

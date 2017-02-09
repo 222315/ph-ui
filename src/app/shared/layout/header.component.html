@@ -1,45 +1,41 @@
-<div style="top: 0px; display: block;background-color: #42145f;">
-	<div style="width: 100%;">
-    	<!-- START LOGO -->
-        <span>
-        	<a id="logo-img" routerLink="" title="PartyHulchul">
-        		<img src="https://d19vuzhmciufvl.cloudfront.net/hyderabad/wp-content/themes/tyrion/images/partyhulchul-logo.png" data-at2x="https://d19vuzhmciufvl.cloudfront.net/hyderabad/wp-content/themes/tyrion/images/retina/partyhulchul-logo.png" title="PartyHulchul" alt="PartyHulchul">
-			</a>
-		</span>
-        <!-- END LOGO -->
+<header>
+              <div class="container row">
+                 <div class="logo col-3">
+                 <a class="logo-img" href="https://www.partyhulchul.com" title="PartyHulchul">
+     <img src="https://d19vuzhmciufvl.cloudfront.net/hyderabad/wp-content/themes/tyrion/images/partyhulchul-logo.png" data-at2x="https://d19vuzhmciufvl.cloudfront.net/hyderabad/wp-content/themes/tyrion/images/retina/partyhulchul-logo.png" title="PartyHulchul" alt="PartyHulchul">
+</a>
+                 </div>
+                 <div class="col-5">
+                   <ul class="menu">
+       <li><a routerLink="/venues">Venues</a></li>
+       <li>
+           <a href="#">Party Services<i class="fa fa-chevron-down" aria-hidden="true"></i></a>
+           <ul>
+               <li><a routerLink="/photsndvideos">Photo & Video</a></li>
+               <li><a routerLink="/catering">Catering</a></li>
+               <li><a routerLink="/decorator">Decorator</a></li>
+               <li><a routerLink="/beautyndhealth">Beauty & Health</a></li>
+               <li><a routerLink="/entertainment">Entertainment</a></li>
+               <li><a routerLink="/eventplanning">Event Planning</a></li>
+               <li><a routerLink="/transport" >Transport</a></li>
+           </ul>
+       </li>
 
-	    <!-- START NAVIGATION -->
-	    <span>
-			<span>
-				<select (change)="navigateTo($event.target.value)">
-					<option value="">Hyderabad</option>
-					<option value="">Bangalore</option>
-					<option value="">Chennai</option>
-					<option value="">Mumbai</option>
-				</select>
-			</span>
-			<span>
-				<a routerLink="/venues" style="color: #ca4b4b">Venues</a>
-			</span>
-			<span>
-				<select (change)="navigateTo($event.target.value)">
-					<option value="/photography">Photo &amp; Video</option>
-					<option value="/catering">Catering</option>
-					<option value="/decorators">Decorator</option>
-					<option value="/beauty">Beauty &amp; Health</option>
-					<option value="">Entertainment</option>
-					<option value="">Event Planning</option>
-					<option value="">Transport</option>
-  				</select>
-				
-			</span>
-			<span>
-				<a routerLink="" style="color: #ca4b4b">Get In Touch</a>
-			</span>
-		</span>
-	    <!-- END NAVIGATION -->
-    
-	</div>
-	<link rel="stylesheet" type="text/css" href="//www.partyhulchul.com/hyderabad/wp-content/themes/tyrion/css/style.css">
-</div>
-<br/>
+       <li><a routerLink="/contact">Get In Touch</a></li>
+       <li><a href="#" ><i class="fa fa-search fa-lg" aria-hidden="true"></i></a></li>
+   </ul>
+
+                 </div>
+                 <div class="col-4">
+                   <ul class="menu">
+                   <li><a href="#">My Account</a></li>
+                   <li><a href="#">0 - Short Listed</a></li>
+                   <li><a href="#" ><i class="fa fa-shopping-cart fa-3x" aria-hidden="true"></i></a></li>
+                 </ul>
+                 </div>
+
+              </div>
+
+           </header>
+          <!--<router-outlet></router-outlet>-->
+          <!--<cust-dash></cust-dash>-->
