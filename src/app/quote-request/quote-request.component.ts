@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component } from '@angular/core';
 import { QuoteRequestModel } from '../shared';
 
 @Component({
@@ -14,12 +14,14 @@ export class QuoteRequestComponent {
 	private showSuccessMsg: boolean = false; 
 
 	private imagesBaseURL: string = "https://d19vuzhmciufvl.cloudfront.net/hyderabad/images/list-images/";
+  
+  private quoteRequestErrorDetails : any = {};
 	 
 	  constructor () {
-		this.initializeQuoteRequestModel();
+		  this.initializeQuoteRequestModel();
 	  	this.initializeQuoteDetails();
 	  }
-
+    
 	  private initializeQuoteRequestModel(){
 		  this.quoteRequestModel =  new QuoteRequestModel();
 		  this.quoteRequestModel.eventType = 'wedding';
@@ -63,27 +65,27 @@ export class QuoteRequestComponent {
 	  }
 
 	  private setEventType(eventType: string){
-		this.quoteRequestModel.eventType = eventType;
+		  this.quoteRequestModel.eventType = eventType;
 	  }
 
 	  private setBudget(budget: string){
-		this.quoteRequestModel.totalBudget = budget;
+		  this.quoteRequestModel.totalBudget = budget;
 	  }
 
 	  private setServices(service: string){
-		if(this.quoteRequestModel.services.indexOf(service) === -1){
-			this.quoteRequestModel.services.push(service);
-		}else{
-			this.quoteRequestModel.services.splice(this.quoteRequestModel.services.indexOf(service), 1);
-		}
+  		if(this.quoteRequestModel.services.indexOf(service) === -1){
+  			this.quoteRequestModel.services.push(service);
+  		}else{
+  			this.quoteRequestModel.services.splice(this.quoteRequestModel.services.indexOf(service), 1);
+  		}
 	  }
 
 	  private setEntertainmentItems(entertainmentItem: string){
-		if(this.quoteRequestModel.entertainment.indexOf(entertainmentItem) === -1){
-			this.quoteRequestModel.entertainment.push(entertainmentItem);
-		}else{
-			this.quoteRequestModel.entertainment.splice(this.quoteRequestModel.entertainment.indexOf(entertainmentItem), 1);
-		}
+  		if(this.quoteRequestModel.entertainment.indexOf(entertainmentItem) === -1){
+  			this.quoteRequestModel.entertainment.push(entertainmentItem);
+  		}else{
+  			this.quoteRequestModel.entertainment.splice(this.quoteRequestModel.entertainment.indexOf(entertainmentItem), 1);
+  		}
 	  }
 
 	  private isEventPlannerNeeded(value: string){
@@ -95,6 +97,51 @@ export class QuoteRequestComponent {
 	  }
 
 	  private submitQuoteRequest(){
-		  this.showSuccessMsg = true;
+      this.showSuccessMsg = false;
+      this.quoteRequestErrorDetails = {};
+      if(this.validateQuoteRequestForm()){
+        //post details to back-end service
+  		  this.showSuccessMsg = true;
+      }else{
+        return;
+      }
 	  }
+    
+    private validateQuoteRequestForm(){
+      
+      if(this.isEmptyOrSpaces(this.quoteRequestModel.city)){
+        this.quoteRequestErrorDetails.city = true;
+      }
+      
+      if(this.isEmptyOrSpaces(this.quoteRequestModel.date)){
+        this.quoteRequestErrorDetails.date = true;
+      }
+      
+      if(this.isEmptyOrSpaces(this.quoteRequestModel.name)){
+        this.quoteRequestErrorDetails.name = true;
+      }
+      
+      let EMAIL_REGEXP = /^[a-z0-9!#$%&'*+\/=?^_`{|}~.-]+@[a-z0-9]([a-z0-9-]*[a-z0-9])?(\.[a-z0-9]([a-z0-9-]*[a-z0-9])?)*$/i;
+      if (this.isEmptyOrSpaces(this.quoteRequestModel.email)
+          || this.quoteRequestModel.email.length <= 5 
+          || !EMAIL_REGEXP.test(this.quoteRequestModel.email)) {
+        this.quoteRequestErrorDetails.email = true;
+      }
+      
+      let PHONE_REGEXP = /^[0-9]{10,10}$/;
+      if (this.isEmptyOrSpaces(this.quoteRequestModel.contactNumber) 
+          || this.quoteRequestModel.contactNumber.length != 10 
+          || !PHONE_REGEXP.test(this.quoteRequestModel.contactNumber)) {
+        this.quoteRequestErrorDetails.phone = true;
+      }
+      return !(this.quoteRequestErrorDetails.city
+        || this.quoteRequestErrorDetails.date
+        || this.quoteRequestErrorDetails.name
+        || this.quoteRequestErrorDetails.email
+        || this.quoteRequestErrorDetails.phone);
+    }
+  
+    private isEmptyOrSpaces(str: string){
+      return !str || str.match(/^ *$/) !== null;
+    }
 }
