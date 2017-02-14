@@ -328,3 +328,7 @@ input[type="number"], input[type="text"] {
 	height: 20px;
 	width: 90%;
 }
+
+.quote-request-error{
+	border: 1px solid red;
+}
