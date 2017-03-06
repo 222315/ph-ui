@@ -1,0 +1,128 @@
+<section>
+	<h6>Your Recent Customer QuoteRequests</h6>
+	<div class="row" *ngIf="vendorHistory">
+		<div class="col cust-req-history"
+			*ngFor="let request of vendorHistory.quoteReqs">
+			<div class="row">
+				<span class="col-4"> <label>Requested Date :</label>{{request.date}}
+				</span> <span class="col-4"> <label>Event Type :</label>{{request.eventType}}
+				</span> <span class="col-4"> <label>Event Date :</label>{{request.eventDate}}
+				</span> <span class="col-3"> <label>#Guests :</label>{{request.noGuests}}
+				</span> <span class="col-5"> <label>Address :</label>
+					<div style="display: inline">
+						<span>{{request.location.addressLine1}}</span> <span>{{request.location.addressLine2}}</span>
+						<span>{{request.location.addressLine3}}</span> <span>{{request.location.city}}</span>
+						<span>{{request.location.zip}}</span> <span>{{request.location.country}}</span>
+					</div>
+				</span>
+
+
+			</div>
+			<div class="col">
+				<label>Services Requested :</label>
+				<table class="table table-striped"
+					*ngIf="request.services.length > 0">
+					<thead>
+						<tr>
+							<th>Service Type</th>
+							<th>Service Subtype</th>
+							<th>Quote Price</th>
+							<th>Special Requests</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr *ngFor="let service of request.services">
+							<td>{{service.serviceType}}</td>
+							<td>{{service.subType}}</td>
+							<td>{{service.quoteValue}}</td>
+							<td>{{service.reqSpls}}</td>
+						</tr>
+
+					</tbody>
+				</table>
+			</div>
+			<div class="col">
+				<a (click)="showVendor = !showVendor"> Customer Pending
+					Responses({{request.vendorRes.vendors.length}})</a>
+			</div>
+			<div class="col" *ngIf="showVendor">
+				<label>Respone From Customers:</label>
+				<table class="table table-striped"
+					*ngIf="request.vendorRes.vendors.length > 0">
+					<thead>
+						<tr>
+							<th>Customer Name</th>
+							<th>Quote Price</th>
+							<th>Customer Comments</th>
+							<th>Event Plan Date</th>
+							<th>Number Of Guest</th>
+							<th></th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr *ngFor="let vendor of request.vendorRes.vendors">
+							<td>Rituraj Travels</td>
+							<td>$2000</td>
+							<!--<td>{{vendor.quoteValue}}</td>
+      						<td>{{vendor.specials}}</td>-->
+							<td>Customer is on hold due to price bargain</td>
+							<td>March 28, 2018</td>
+							<td>1200</td>
+							<!--<td>{{vendor.reasonForQuoteChange}}</td>-->
+							<td><a href="#"><i class="fa fa-weixin fa-lg"
+									aria-hidden="true"></i></a></td>
+						</tr>
+
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+</section>
+
+<div class="container" style="margin-top: 10px;">
+
+	<section>
+		<h6>Your Customer Quote Details</h6>
+		<div class="row">
+			<div class="col cust-req-history">
+				<div class="col">
+					<label>Customer History :</label>
+
+
+					<table class="table table-striped">
+						<thead>
+							<tr>
+								<th>#</th>
+								<th align="center">Customer Name</th>
+								<th align="center">Address</th>
+								<th align="center">EmailId</th>
+								<th align="center">Price</th>
+								<th align="center">Guests</th>
+								<th align="center">Event Date</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr
+								*ngFor="let customer of allCustomerDetails | paginate: {itemsPerPage: 3, currentPage:page, id: '1'}; let i = index">
+								<td>{{i + 1}}</td>
+								<td>{{customer.name}}</td>
+								<td>{{customer.address}}</td>
+								<td>{{customer.emailId}}</td>
+								<td>{{customer.price}}</td>
+								<td>{{customer.guest}}</td>
+								<td>{{customer.eventDate}}</td>
+							</tr>
+						</tbody>
+
+					</table>
+					<pagination-controls (pageChange)="page = $event" id="1"
+						maxSize="5" directionLinks="true" autoHide="true">
+					</pagination-controls>
+
+				</div>
+
+			</div>
+		</div>
+	</section>
+</div>
