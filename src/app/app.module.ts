@@ -21,6 +21,16 @@ import { HeaderComponent, FooterComponent, SharedModule } from './shared';
 
 import { ApiService, LocationService, VenueService } from './shared';
 
+import {Ng2PaginationModule} from 'ng2-pagination'; //importing ng2-pagination
+import {VendorModule} from './vendor/dashboard/vendor.module';
+
+//import { CustomerStatusComponent } from './vendor/customer-status.component';
+
+import { HomeComponent } from './home/home.component'; //import home components
+//import { AboutComponent } from './vendor/dashboard/about/about.component'; //import about component
+
+
+
 const rootRouting: ModuleWithProviders = RouterModule.forRoot([], { useHash: true });
 
 @NgModule({
@@ -45,6 +55,7 @@ const rootRouting: ModuleWithProviders = RouterModule.forRoot([], { useHash: tru
     QuoteRequestModule,
      CustomerModule,
   AppRoutingModule,
+  Ng2PaginationModule, VendorModule
   ],
   providers: [ApiService, LocationService, VenueService],
   bootstrap: [AppComponent]
