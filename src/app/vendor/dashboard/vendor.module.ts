@@ -21,8 +21,7 @@ import { Ng2PaginationModule } from 'ng2-pagination'; //importing ng2-pagination
     ],
     declarations: [
         VendorDashboard,
-        VendorHistoryComponent,
-        NdvEditComponent
+        VendorHistoryComponent
         //EditProfileComponent
     ],
     providers: [VendorDataService]
