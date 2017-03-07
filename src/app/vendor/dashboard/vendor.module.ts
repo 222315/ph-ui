@@ -9,9 +9,6 @@ import { VendorHistoryComponent } from './vendor-history.component';
 //import {EditProfileComponent} from './edit-profile.component';
 
 
-import { NdvEditComponent } from '../../components';
-
-
 import { Ng2PaginationModule } from 'ng2-pagination'; //importing ng2-pagination
 
 @NgModule( {
