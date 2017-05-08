@@ -7,178 +7,192 @@
 		</div>
     </div>
 	<div class="box success-box" style="margin-top: 20px;" *ngIf="showSuccessMsg">Thanks for your request and we will contact you soon.</div>
-	<div>
-		<h4 class="question-title">Please choose your event type&nbsp;</h4>
-		<ul class="event-bar" style="margin-left: 0;">
-				<li *ngFor = "let eventType of quoteDetails.eventTypeList; let i = index;" 
-					value="{{eventType.value}}" 
-					(click)="setEventType(eventType.value)" 
-					[ngClass]="{active: eventType.value==quoteRequestModel.eventType}">
-						<img class="event-type" alt="{{eventType.imageName}}" src="{{imagesBaseURL + eventType.imageName}}"/>
-						<span>{{eventType.displayName}}</span>
+	<div *ngIf="!showSuccessMsg">
+		<div>
+			<h4 class="question-title">Please choose your event type&nbsp;</h4>
+			<ul class="event-bar" style="margin-left: 0;">
+					<li *ngFor = "let eventType of quoteDetails.eventTypeList; let i = index;" 
+						value="{{eventType.value}}" 
+						(click)="setEventType(eventType.value)" 
+						[ngClass]="{active: eventType.value==quoteRequestModel.eventType}">
+							<img class="event-type" alt="{{eventType.imageName}}" src="{{imagesBaseURL + eventType.imageName}}"/>
+							<span>{{eventType.displayName}}</span>
+					</li>
+			</ul>
+		</div>
+		<div>
+			<h4>What is your total budget?</h4>
+			<ul class="circle-list" style="margin-left: 0;">
+				<li *ngFor = "let budget of quoteDetails.budgetRange; let i = index;" 
+					value="{{budget.value}}" 
+					(click)="setBudget(budget.value)" 
+					[ngClass]="{active: budget.value==quoteRequestModel.totalBudget}">
+						<span>{{budget.displayName}}</span>
 				</li>
-		</ul>
-	</div>
-	<div>
-		<h4>What is your total budget?</h4>
-		<ul class="circle-list" style="margin-left: 0;">
-			<li *ngFor = "let budget of quoteDetails.budgetRange; let i = index;" 
-				value="{{budget.value}}" 
-				(click)="setBudget(budget.value)" 
-				[ngClass]="{active: budget.value==quoteRequestModel.totalBudget}">
-					<span>{{budget.displayName}}</span>
-			</li>
-			<li>
-				<span>
-					<input type="text" placeholder="Other Amount"/>
-				</span>
-			</li>
-		</ul>
+				<li>
+					<span>
+						<input type="text" placeholder="Other Amount"/>
+					</span>
+				</li>
+			</ul>
+			
+		</div>
+		<div>
+			<h4 class = "question-title">Choose the services you need</h4>
+			<ul class = "circle-list" style = "margin-left: 0;">
+				<li class="entertainment-item" 
+					*ngFor = "let service of quoteDetails.servicesList; let i = index;" 
+					value = "{{service.value}}" 
+					(click) = "setServices(service.value)" 
+					[ngClass] = "{active: quoteRequestModel.services.indexOf(service.value) !== -1 }">
+						<img alt = "{{service.imageName}}" src = "{{imagesBaseURL + service.imageName}}"/>
+						<span>{{service.displayName}}</span>
+				</li>
+			</ul>
+		</div>
+		<div>
+			<h4 class = "question-title">Entertainment</h4>
+			<ul class = "circle-list" style = "margin-left: 0;">
+				<li class = "entertainment-item" 
+					*ngFor = "let entertainmentItem of quoteDetails.entertainmentItemsList; let i = index;" 
+					value = "{{entertainmentItem.value}}" 
+					(click) = "setEntertainmentItems(entertainmentItem.value)" 
+					[ngClass] = "{active: quoteRequestModel.entertainment.indexOf(entertainmentItem.value) !== -1 }">
+						<img alt = "{{entertainmentItem.imageName}}" src = "{{imagesBaseURL + entertainmentItem.imageName}}"/>
+						<span>{{entertainmentItem.displayName}}</span>
+				</li>
+			</ul>
+		</div>
+		<div>
+			<h4 class = "question-title">Do you need Event Planner?&nbsp;</h4>
+			<ul class = "circle-list" style = "margin-left: 0;">
+				<li class = "event-planner-item" 
+					(click) = "isEventPlannerNeeded('Yes')" 
+					[ngClass] = "{active: 'Yes' === quoteRequestModel.isEventPlannerNeeded}">
+						<span>Yes</span>&nbsp;
+				</li>
+				<li class = "event-planner-item" 
+					(click) = "isEventPlannerNeeded('No')" 
+					[ngClass] = "{active: 'No' === quoteRequestModel.isEventPlannerNeeded}">
+						<span>No</span>&nbsp;
+				</li>
+			</ul>
+		</div>
 		
-	</div>
-	<div>
-		<h4 class = "question-title">Choose the services you need</h4>
-		<ul class = "circle-list" style = "margin-left: 0;">
-			<li class="entertainment-item" 
-				*ngFor = "let service of quoteDetails.servicesList; let i = index;" 
-				value = "{{service.value}}" 
-				(click) = "setServices(service.value)" 
-				[ngClass] = "{active: quoteRequestModel.services.indexOf(service.value) !== -1 }">
-					<img alt = "{{service.imageName}}" src = "{{imagesBaseURL + service.imageName}}"/>
-					<span>{{service.displayName}}</span>
-			</li>
-		</ul>
-	</div>
-	<div>
-		<h4 class = "question-title">Entertainment</h4>
-		<ul class = "circle-list" style = "margin-left: 0;">
-			<li class = "entertainment-item" 
-				*ngFor = "let entertainmentItem of quoteDetails.entertainmentItemsList; let i = index;" 
-				value = "{{entertainmentItem.value}}" 
-				(click) = "setEntertainmentItems(entertainmentItem.value)" 
-				[ngClass] = "{active: quoteRequestModel.entertainment.indexOf(entertainmentItem.value) !== -1 }">
-					<img alt = "{{entertainmentItem.imageName}}" src = "{{imagesBaseURL + entertainmentItem.imageName}}"/>
-					<span>{{entertainmentItem.displayName}}</span>
-			</li>
-		</ul>
-	</div>
-	<div>
-		<h4 class = "question-title">Do you need Event Planner?&nbsp;</h4>
-		<ul class = "circle-list" style = "margin-left: 0;">
-			<li class = "event-planner-item" 
-				(click) = "isEventPlannerNeeded('Yes')" 
-				[ngClass] = "{active: 'Yes' === quoteRequestModel.isEventPlannerNeeded}">
-					<span>Yes</span>&nbsp;
-			</li>
-			<li class = "event-planner-item" 
-				(click) = "isEventPlannerNeeded('No')" 
-				[ngClass] = "{active: 'No' === quoteRequestModel.isEventPlannerNeeded}">
-					<span>No</span>&nbsp;
-			</li>
-		</ul>
-	</div>
+		
+		<div>
+			<div class="abt-event">
+				<h4 class="question-title">About your event</h4>
+				<table class="table-width">
+					<tbody>
+						<tr>
+							<td valign="top">
+								<label for="city">Please choose your City&nbsp;<small class="mandatory-star">*</small></label>
+							</td>
+							<td valign="top">
+								<select style="width: 95%;height: 36px;" (change)="setCity($event.target.value)" [ngClass]="this.quoteRequestErrorDetails.city ? 'quote-request-error' : ''">
+									<option value="">Select City</option>
+									<option value="hyderabad">Hyderabad</option>
+									<option value="goa">Goa</option>
+									<option value="chennai">Chennai</option>
+								</select>
+							</td>
+						</tr>
 	
+						<tr>
+							<td valign="top">
+								<label for="location">Any preferred Location</label>
+							</td>
+							<td valign="top">
+								<input type="text" name="location" id="location" maxlength="50" placeholder="Enter your Location" size="30" [(ngModel)]="quoteRequestModel.location">
+							</td>
+						</tr>
+						<tr>
+							<td valign="top">
+								<label for="email">What is your event date&nbsp;<small class="mandatory-star">*</small></label>
+							</td>
+							<td valign="top">
+								<input type="text" name="event_date" id="datepicker" [(ngModel)]="quoteRequestModel.date"  [ngClass]="this.quoteRequestErrorDetails.date ? 'quote-request-error' : ''">
+							</td>
 	
-	<div>
-		<div class="abt-event">
-			<h4 class="question-title">About your event</h4>
-			<table class="table-width">
-				<tbody>
-					<tr>
-						<td valign="top">
-							<label for="city">Please choose your City&nbsp;<small class="mandatory-star">*</small></label>
-						</td>
-						<td valign="top">
-							<select style="width: 95%;height: 36px;" (change)="setCity($event.target.value)" [ngClass]="this.quoteRequestErrorDetails.city ? 'quote-request-error' : ''">
-								<option value="">Select City</option>
-								<option value="hyderabad">Hyderabad</option>
-								<option value="goa">Goa</option>
-								<option value="chennai">Chennai</option>
-							</select>
-						</td>
-					</tr>
-
-					<tr>
-						<td valign="top">
-							<label for="location">Any preferred Location</label>
-						</td>
-						<td valign="top">
-							<input type="text" name="location" id="location" maxlength="50" placeholder="Enter your Location" size="30" [(ngModel)]="quoteRequestModel.location">
-						</td>
-					</tr>
-					<tr>
-						<td valign="top">
-							<label for="email">What is your event date&nbsp;<small class="mandatory-star">*</small></label>
-						</td>
-						<td valign="top">
-							<input type="text" name="event_date" id="datepicker" [(ngModel)]="quoteRequestModel.date"  [ngClass]="this.quoteRequestErrorDetails.date ? 'quote-request-error' : ''">
-						</td>
-
-					</tr>
-					<tr>
-						<td valign="top">
-							<label for="telephone">What the expected Guest Count</label>
-						</td>
-						<td valign="top">
-							<input type="number" name="guest_count" id="guest" placeholder="Guest Count" maxlength="30" size="30" [(ngModel)]="quoteRequestModel.expectedGuestCount">
-						</td>
-					</tr>
-					<tr>
-						<td valign="top">
-							<label for="comments">&nbsp;</label>
-						</td>
-						<td valign="top">
-							<br>&nbsp;
-						</td>
-					</tr>
-					<tr>
-						<td valign="top">
-							<label for="comments">&nbsp;</label>
-						</td>
-						<td valign="top">
-							<br>&nbsp;
-						</td>
-					</tr>
-				</tbody>
-			</table>
+						</tr>
+						<tr>
+							<td valign="top">
+								<label for="telephone">What the expected Guest Count</label>
+							</td>
+							<td valign="top">
+								<input type="number" name="guest_count" id="guest" placeholder="Guest Count" maxlength="30" size="30" [(ngModel)]="quoteRequestModel.expectedGuestCount">
+							</td>
+						</tr>
+						<tr>
+							<td valign="top">
+								<label for="comments">&nbsp;</label>
+							</td>
+							<td valign="top">
+								<br>&nbsp;
+							</td>
+						</tr>
+						<tr>
+							<td valign="top">
+								<label for="comments">&nbsp;</label>
+							</td>
+							<td valign="top">
+								<br>&nbsp;
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<div class="abt-you">
+				<h4 class="question-title">About you</h4>
+				<table class="table-width">
+					<tbody>
+						<tr>
+							<td valign="top">
+								<label for="email">Name&nbsp;<small class="mandatory-star">*</small></label>
+							</td>
+							<td valign="top">
+								<input type="text" maxlength="50" placeholder="Enter your full name" size="30" [(ngModel)]="quoteRequestModel.name" [ngClass]="this.quoteRequestErrorDetails.name ? 'quote-request-error' : ''">
+							</td>
+						</tr>
+						<tr>
+							<td valign="top">
+								<label for="city">Email&nbsp;<small class="mandatory-star">*</small></label>
+							</td>
+							<td valign="top">
+								<input type="text" name="email" id="email" maxlength="50" placeholder="name@domain.com" size="30" [(ngModel)]="quoteRequestModel.email" [ngClass]="this.quoteRequestErrorDetails.email ? 'quote-request-error' : ''">
+							</td>
+						</tr>
+						<tr>
+							<td valign="top">
+								<label for="comments">Contact Number&nbsp;<small class="mandatory-star">*</small></label>
+							</td>
+							<td valign="top">
+								<input type="text" maxlength="10" placeholder="Enter your phone number" size="10" [(ngModel)]="quoteRequestModel.contactNumber" [ngClass]="this.quoteRequestErrorDetails.phone ? 'quote-request-error' : ''">
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<div style="clear:both;">&nbsp;</div>
 		</div>
-		<div class="abt-you">
-			<h4 class="question-title">About you</h4>
-			<table class="table-width">
-				<tbody>
-					<tr>
-						<td valign="top">
-							<label for="email">Name&nbsp;<small class="mandatory-star">*</small></label>
-						</td>
-						<td valign="top">
-							<input type="text" maxlength="50" placeholder="Enter your full name" size="30" [(ngModel)]="quoteRequestModel.name" [ngClass]="this.quoteRequestErrorDetails.name ? 'quote-request-error' : ''">
-						</td>
-					</tr>
-					<tr>
-						<td valign="top">
-							<label for="city">Email&nbsp;<small class="mandatory-star">*</small></label>
-						</td>
-						<td valign="top">
-							<input type="text" name="email" id="email" maxlength="50" placeholder="name@domain.com" size="30" [(ngModel)]="quoteRequestModel.email" [ngClass]="this.quoteRequestErrorDetails.email ? 'quote-request-error' : ''">
-						</td>
-					</tr>
-					<tr>
-						<td valign="top">
-							<label for="comments">Contact Number&nbsp;<small class="mandatory-star">*</small></label>
-						</td>
-						<td valign="top">
-							<input type="text" maxlength="10" placeholder="Enter your phone number" size="10" [(ngModel)]="quoteRequestModel.contactNumber" [ngClass]="this.quoteRequestErrorDetails.phone ? 'quote-request-error' : ''">
-						</td>
-					</tr>
-				</tbody>
-			</table>
+		<div style="text-align:center; margin-bottom:10px;">
+			<p>
+				<label><input type="checkbox" value="agree" checked="checked" readonly="readonly">I agree to the Terms and Conditions</label>
+			</p>
+			<button type="submit" name="submit" value="SUBMIT" style="color: #ffffff;background-color:#8d0202;border-color:#9f2424;padding-top: 8px;padding-bottom: 8px;padding-left: 20px;padding-right: 20px;" (click)="submitQuoteRequest()">SUBMIT</button>
 		</div>
-		<div style="clear:both;">&nbsp;</div>
 	</div>
-	<div style="text-align:center; margin-bottom:10px;">
-		<p>
-			<label><input type="checkbox" value="agree" checked="checked" readonly="readonly">I agree to the Terms and Conditions</label>
-		</p>
-		<button type="submit" name="submit" value="SUBMIT" style="color: #ffffff;background-color:#8d0202;border-color:#9f2424;padding-top: 8px;padding-bottom: 8px;padding-left: 20px;padding-right: 20px;" (click)="submitQuoteRequest()">SUBMIT</button>
+	<div *ngIf="showSuccessMsg">
+		<div>
+			<h1>Sign In or Create a Partyhulchul Account to view the request</h1>
+			<span>Mobile#: {{quoteRequestModel.contactNumber}}</span><br/>
+			<span>Email: {{quoteRequestModel.email}}</span><br/>
+			<input type="radio" [(ngModel)]="userType"  name="loginType" value="new"/>I am new user.<br/>
+        	<input type="radio" [(ngModel)]="userType"  name="loginType" value="existing"/>I am an existing user and my password is:<br/>
+        	<input type="password" (ngModel)="password"/><br/>
+        	<button type="button" style="color: #ffffff;background-color:#8d0202;border-color:#9f2424;padding-top: 8px;padding-bottom: 8px;padding-left: 20px;padding-right: 20px;">{{userType=='new' ? 'Sign Up' : 'Sign In'}}</button>
+		</div>
+	
 	</div>
 </div>

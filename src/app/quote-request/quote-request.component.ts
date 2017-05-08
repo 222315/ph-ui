@@ -12,6 +12,8 @@ export class QuoteRequestComponent {
 	private quoteRequestModel: QuoteRequestModel;
 	private quoteDetails: any = {};
 	private showSuccessMsg: boolean = false; 
+  private userType: string;
+  private password: string;
 
 	private imagesBaseURL: string = "https://d19vuzhmciufvl.cloudfront.net/hyderabad/images/list-images/";
   
