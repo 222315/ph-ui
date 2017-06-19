@@ -1,8 +1,11 @@
+import { CustomerService } from './customer/dashboard/customer.service';
+import { FacebookLoginComponent } from './customer/dashboard/facebooklogin.component';
 import { ModuleWithProviders, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule, Router } from '@angular/router';
 import { AppRoutingModule } from './app-routing.module';
 import {CustomerModule} from './customer/dashboard/customer.module';
+
 
 
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -37,7 +40,8 @@ const rootRouting: ModuleWithProviders = RouterModule.forRoot([], { useHash: tru
   declarations: [
     AppComponent,
     FooterComponent,
-    HeaderComponent
+    HeaderComponent,
+    FacebookLoginComponent
   ],
   imports: [
     BrowserModule,
@@ -57,7 +61,7 @@ const rootRouting: ModuleWithProviders = RouterModule.forRoot([], { useHash: tru
   AppRoutingModule,
   Ng2PaginationModule, VendorModule
   ],
-  providers: [ApiService, LocationService, VenueService],
+  providers: [ApiService, LocationService, VenueService,CustomerService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
