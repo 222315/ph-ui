@@ -51,7 +51,7 @@ export class FacebookLoginComponent implements OnInit {
           console.log(resp.status);
           FB.api('/me', { locale: 'en_US', fields: 'name, email' },function(userInfo) {
         console.log(userInfo.name + ': ' + userInfo.email);
-        alert(userInfo.name+ 'Facebook Profile Connected, ' + userInfo.email + '.');
+        alert(userInfo.name + 'Facebook Profile Connected, ' + userInfo.email + '.');
       });
             // connect here with your server for facebook login by passing access token given by facebook
         }else if (resp.status === 'not_authorized') {
